@@ -1,2 +1,3 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Frid og Larus' brullup</h1>
+<p>Vi gifter oss 15. juni 2023!</p>
+<p>Mer info kommer fortløpende!</p>
