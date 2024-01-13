@@ -153,6 +153,9 @@
         text-align: center;
         margin-top: 0;
     }
+    iframe {
+        max-width: 100% !important;
+    }
 </style>
 
 
