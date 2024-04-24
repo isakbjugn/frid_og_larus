@@ -1,9 +1,4 @@
 <script>
-    const baker = {
-        navn: '[navn kommer]',
-        telefon: '[telefonnummer kommer]',
-        kjoretidspunkt: '[klokkeslett kommer]'
-    }
     const brud = {
         navn: 'Frid',
         epost: 'fridbjugn@gmail.com',
@@ -19,11 +14,22 @@
         epost: 'isakbjugn@gmail.com',
         telefon: '928 35 995',
     }
+    const baker = brud;
     const contactInformation = [brud, brudgom, kjokemester]
+    const lastRegistrationDate = new Date('2024-04-15');
 
-    const today = new Date();
-    const lastRegistrationDate = new Date('2024-04-01');
-    const isRegistrationOpen = today < lastRegistrationDate;
+    function formatDate(date) {
+        return date.toLocaleDateString('nb-NO', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        });
+    }
+
+    function isRegistrationOpen() {
+        const today = new Date();
+        return today < new Date(lastRegistrationDate.getDate() + 1)
+    }
 </script>
 
 <main>
@@ -39,7 +45,7 @@
     </p>
     <details>
         <summary><span class="summary-title">Registrering</span></summary>
-        {#if isRegistrationOpen}
+        {#if isRegistrationOpen()}
             <iframe
               title="Gjesteregistrering (skjema)"
               src="https://docs.google.com/forms/d/e/1FAIpQLSf4K5RrZjA3-oifJuFVl5HVP-TykvU1thDPJR03Y5pGY8YxjA/viewform?embedded=true"
@@ -51,7 +57,7 @@
             />
         {:else}
             <p>
-                Registreringen er nå stengt. Dersom du har spørsmål, ta kontakt med oss på e-post eller telefon.
+                Registreringen var åpen til {formatDate(lastRegistrationDate)}, og er nå stengt. Dersom du har spørsmål, ta kontakt med oss på e-post eller telefon.
             </p>
         {/if}
     </details>
@@ -84,14 +90,14 @@
     <details>
         <summary><span class="summary-title">Allergier og preferanser</span></summary>
         <p>
-            Dersom noen har allergier, bes det om tilbakemelding om dette til Frid skriftlig (se kontaktinformasjon). Alkoholfri drikkepakke er et alternativ dersom det er ønskelig. Også dette vil vi gjerne ha tilbakemelding på fortløpende. Senest 15.04.24.
+            Dersom noen har allergier, bes det om tilbakemelding om dette til Frid skriftlig (se kontaktinformasjon). Alkoholfri drikkepakke er et alternativ dersom det er ønskelig. Også dette vil vi gjerne ha tilbakemelding på fortløpende. Senest {formatDate(lastRegistrationDate)}.
         </p>
     </details>
     <details>
         <summary><span class="summary-title">Vil du bidra med noe?</span></summary>
         <p>
             Ønsker du å bake en kake? Ta i så fall kontakt med {baker.navn} på tlf. {baker.telefon}.
-            Kaker kan leveres direkte til Kvitnes gård dagen før eller så kjører {baker.navn} til Kvitnes fredag kl. {baker.kjoretidspunkt} for å sette kaker i kjøla, og kan ta med flere.
+            Kaker kan leveres direkte til Kvitnes gård dagen før eller så kjører {baker.navn} til Kvitnes fredag formiddag for å sette kaker i kjøla, og kan ta med flere.
         </p>
     </details>
     <h2>Kvitnes gård</h2>
