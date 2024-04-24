@@ -20,6 +20,10 @@
         telefon: '928 35 995',
     }
     const contactInformation = [brud, brudgom, kjokemester]
+
+    const today = new Date();
+    const lastRegistrationDate = new Date('2024-04-01');
+    const isRegistrationOpen = today < lastRegistrationDate;
 </script>
 
 <main>
@@ -35,15 +39,21 @@
     </p>
     <details>
         <summary><span class="summary-title">Registrering</span></summary>
-        <iframe
-          title="Gjesteregistrering (skjema)"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSf4K5RrZjA3-oifJuFVl5HVP-TykvU1thDPJR03Y5pGY8YxjA/viewform?embedded=true"
-          width="488"
-          height="704"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        />
+        {#if isRegistrationOpen}
+            <iframe
+              title="Gjesteregistrering (skjema)"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSf4K5RrZjA3-oifJuFVl5HVP-TykvU1thDPJR03Y5pGY8YxjA/viewform?embedded=true"
+              width="488"
+              height="704"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            />
+        {:else}
+            <p>
+                Registreringen er nå stengt. Dersom du har spørsmål, ta kontakt med oss på e-post eller telefon.
+            </p>
+        {/if}
     </details>
     <details>
         <summary><span class="summary-title">Kontaktinformasjon</span></summary>
@@ -58,7 +68,7 @@
         Vielsen vil finne sted på gården kl 14.00. Tatt geografien i betraktning bør man være forbedret på vær og vind. Paraply kan være et godt supplement til kjole, dress eller bunad.
     </p>
     <p>
-        Mellom vielse og middag vil det bli fototgrafering av brudeparet. For gjestene serveres det i dette tidsrommet velkomstdrink og kanapé. Dette er en fin anledning til å ta inn den vakre atmosfæren på gården, hilse på dyrene og mingle med andre gjester. Trolig vil det være mulighet å bedrive små aktiviteter som kubb og boccia.
+        Mellom vielse og middag vil det bli fotografering av brudeparet. For gjestene serveres det i dette tidsrommet velkomstdrink og kanapé. Dette er en fin anledning til å ta inn den vakre atmosfæren på gården, hilse på dyrene og mingle med andre gjester. Trolig vil det være mulighet å bedrive små aktiviteter som kubb og boccia.
     </p>
     <details>
         <summary><span class="summary-title">Bilder</span></summary>
@@ -106,9 +116,10 @@
     </p>
     <h2>Ønskeliste</h2>
     <p>
-        Vi synes det er stor stas at folk tar seg tid og råd til å delta i vår kjærlighetsfest.  Om du ønsker å gi oss en bryllupsgave så er det selvfølgelig mulig.
+        Vi synes det er stor stas at folk tar seg tid og råd til å delta i vår kjærlighetsfest. Om du ønsker å gi oss en bryllupsgave, så har vi laget en ønskeliste hos <span style="font-style: italic">Kitch'n</span>:
     </p>
-    <p style="font-style: italic">Ønskeliste kommer senere</p>
+    <a href="https://www.kitchn.no/onskeliste/173519/">https://www.kitchn.no/onskeliste/173519/</a>
+    <p>Vi blir også glade for pengegaver som øremerkes bildekunst til vårt hjem.</p>
 </main>
 
 <style>
