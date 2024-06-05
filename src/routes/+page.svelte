@@ -17,6 +17,7 @@
     const baker = brud;
     const contactInformation = [brud, brudgom, kjokemester]
     const lastRegistrationDate = new Date('2024-04-15');
+    const accountNumber = '4612 15 32492';
 
     function formatDate(date) {
         return date.toLocaleDateString('nb-NO', {
@@ -125,7 +126,7 @@
         Vi synes det er stor stas at folk tar seg tid og råd til å delta i vår kjærlighetsfest. Om du ønsker å gi oss en bryllupsgave, så har vi laget en ønskeliste hos <span style="font-style: italic">Kitch'n</span>:
     </p>
     <a href="https://www.kitchn.no/onskeliste/173519/">https://www.kitchn.no/onskeliste/173519/</a>
-    <p>Vi blir også glade for pengegaver som øremerkes bildekunst til vårt hjem.</p>
+    <p>Vi blir også glade for pengegaver som øremerkes bildekunst til vårt hjem. Disse kan settes inn på kontonummer {accountNumber}.</p>
 </main>
 
 <style>
